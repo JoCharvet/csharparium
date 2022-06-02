@@ -9,6 +9,7 @@ namespace csharpquarium
    internal class Carnivore :Fish
     {
         
+
         public Carnivore()
         {
             this.Age = 0;
@@ -17,6 +18,8 @@ namespace csharpquarium
             this.Name = "CarniTest";
             this.Health_point =10;
             this.Species = Spicies_Carnivore.Thon.ToString();
+            this.Damage = 4;
+            this.Hp_gain_eat = 5;
         }
 
         public Carnivore(Carnivore _carnivore)
@@ -26,7 +29,19 @@ namespace csharpquarium
             this.Sexuality= _carnivore.Sexuality;
             this.Name= _carnivore.Name;
             this.Health_point= _carnivore.Health_point;
-            this.Species =_carnivore.Species;   
+            this.Species =_carnivore.Species;
+            this.Damage = _carnivore.Damage;
+            this.Hp_gain_eat = _carnivore.Hp_gain_eat;
+        }
+
+        public override AquaticLifeForm ChooseTargetToEat(Aquarium _aquarium)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override AquaticLifeForm ChooseTargetToReproduce(Aquarium _aquarium)
+        {
+            throw new NotImplementedException();
         }
 
         public void Eat(Fish _fish)
@@ -34,5 +49,9 @@ namespace csharpquarium
             throw new System.NotImplementedException();
         }
 
+        public override void LiveATurn()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

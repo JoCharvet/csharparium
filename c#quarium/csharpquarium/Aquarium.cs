@@ -8,18 +8,18 @@ namespace csharpquarium
     public class Aquarium
     {
         // Used for contain AquaticLifeForm
-        private AquaticLifeForm[] location;
+        List <AquaticLifeForm> location;
         // The limit of the Aquarium
         private int max_size=9;
 
         public Aquarium()
         {
-            this.Location = new AquaticLifeForm[10];
+            this.Location = new List<AquaticLifeForm>();
         }
         public Aquarium(int _size)
         {
             this.Max_size= _size-1;
-            this.Location = new AquaticLifeForm[Max_size];
+            this.Location = new List<AquaticLifeForm>();
         }
 
         // Used for replace the aquarium by another (loading a save for exemple)
@@ -29,8 +29,7 @@ namespace csharpquarium
             this.Max_size= _copy.Max_size;
         }
         
-
-        internal AquaticLifeForm[] Location { get => location; set => location = value; }
+        internal List<AquaticLifeForm> Location { get => location; set => location = value; }
         public int Max_size { get => max_size; set => max_size = value; }
 
         /// <summary>
@@ -39,30 +38,22 @@ namespace csharpquarium
         /// <param name="_aquatic_life_form"></param> type AquaticLifeForm
         /// <example>aquarium.AddAquaticLifeForm(fish)</example>
         private void AddAquaticLifeForm(AquaticLifeForm _aquatic_life_form)
-        {
-            bool ok=false;
-            for (int i = 0; i < Max_size; i++)
-            {
-                if(this.Location[i] == null)
-                {
-                    this.Location[i] = _aquatic_life_form;
-                    i = Max_size;
-                    Console.WriteLine("Ajouté a l'emplacement " + i);
-                    ok = true;
-                }
-            }
-            if (!ok)
-                 Console.WriteLine("Aquarium plein");
+        { 
+            if(this.Location.Count < this.Max_size)
+               this.Location.Add(_aquatic_life_form);
+            else
+               Console.WriteLine("Aquarium plein.");
         }
 
         /// <summary>
         /// Used for remove an AquaticLifeForm in the Aquarium, you need to have the index of the object in the location
         /// </summary>
-        /// <param name="_index"></param> the index of the AquaticLifeForm
+        /// <param name="_aquatic_life_form"></param> type AquaticLifeForm
         /// <example>aquarium.RemoveAquaticLifeForm(7)</example>
-        public void RemoveAquaticLifeForm(int _index)
+        internal void RemoveAquaticLifeForm(AquaticLifeForm _aquaticLifeForm)
         {
-            this.Location = this.Location.Where((source,index)=>index !=_index).ToArray();
+            this.location.Remove(_aquaticLifeForm);
+            //this.Location = this.Location.Where((source,index)=>index !=_index).ToArray();
         }
 
         /// <summary>
@@ -70,7 +61,7 @@ namespace csharpquarium
         /// </summary>
         public void RemoveAll()
         {
-           this.Location= new AquaticLifeForm[max_size];
+           this.Location= new List<AquaticLifeForm>();
         }
 
         /// <summary>
@@ -88,8 +79,5 @@ namespace csharpquarium
         {
 
         }
-
-
-       
     }
 }
