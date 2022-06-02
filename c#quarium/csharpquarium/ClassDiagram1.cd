@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="csharpquarium.AquaticLifeForm">
+    <Position X="6" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAQAAoAEIAAQACBAAAACQAAAAAAAAABAE=</HashCode>
+      <FileName>AquaticLifeFom.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="csharpquarium.Plant">
+    <Position X="8.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Plant.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="csharpquarium.Fish">
+    <Position X="5.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAAAAAAAQQACAAEAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Fish.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="csharpquarium.Aquarium">
+    <Position X="9" Y="0.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAQAAAAAAAIAAAACAAAAAAAAYAIAAAAAAAI=</HashCode>
+      <FileName>Aquarium.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="csharpquarium.Carnivore">
+    <Position X="4.25" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Carnivore.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="csharpquarium.Herbivore">
+    <Position X="7.25" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Herbivore.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="csharpquarium.SexualBehavior">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAgAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SexualBehavior.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="csharpquarium.MonoSexed">
+    <Position X="0.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MonoSexed.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="csharpquarium.Hermaphrodite">
+    <Position X="2.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>hermaphrodite.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="csharpquarium.HermaphroditeByAge">
+    <Position X="0.5" Y="6.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>HermaphroditebyAge.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="csharpquarium.OpportunisticHermaphrodite">
+    <Position X="2.75" Y="6.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>OpportunisticHermaphrodite.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="csharpquarium.Spicies_Carnivore">
+    <Position X="9.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAIAAAAAAQA=</HashCode>
+      <FileName>Spicies_Carnivore.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="csharpquarium.Spicies_Herbivore">
+    <Position X="2.25" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAgAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Spicies_Herbivore.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="csharpquarium.FirstNameMale">
+    <Position X="4" Y="0.5" Width="1.25" />
+    <TypeIdentifier>
+      <HashCode>AAJAAAEAAEGACEAACAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>FirstNameMale.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="csharpquarium.FirstNameFemale">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAQAAAAIAAIQAAAAACAAAAAAAAAAIAAAEAACAAgA=</HashCode>
+      <FileName>FirstNameFemale.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="csharpquarium.FirstNameMixed">
+    <Position X="4" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAAAAAACAAAAAxCgAAAwAEAAAAAAAAAA=</HashCode>
+      <FileName>FirstNameMixed.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
