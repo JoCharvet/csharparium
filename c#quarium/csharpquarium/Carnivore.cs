@@ -34,12 +34,16 @@ namespace csharpquarium
             this.Hp_gain_eat = _carnivore.Hp_gain_eat;
         }
 
-        public override AquaticLifeForm ChooseTargetToEat(Aquarium _aquarium)
+        
+
+        public override AquaticLifeForm ChooseTargetToEat(ref Aquarium _aquarium)
         {
             throw new NotImplementedException();
         }
 
-        public override AquaticLifeForm ChooseTargetToReproduce(Aquarium _aquarium)
+       
+
+        public override AquaticLifeForm ChooseTargetToReproduce(ref Aquarium _aquarium)
         {
             throw new NotImplementedException();
         }
@@ -49,7 +53,12 @@ namespace csharpquarium
             throw new System.NotImplementedException();
         }
 
-        public override void LiveATurn()
+        public override void LiveATurn(Aquarium _aquarium)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override Fish Reproduce()
         {
             throw new NotImplementedException();
         }

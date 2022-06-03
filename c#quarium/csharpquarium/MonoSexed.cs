@@ -7,14 +7,12 @@ namespace csharpquarium
 {
     internal class MonoSexed : SexualBehavior
     {
-        public MonoSexed()
+        public MonoSexed() : base()
         {
-           
         }
 
-        public MonoSexed(string _sexe)
+        public MonoSexed(string _sexe) :base(_sexe)
         {
-            this.Gender = _sexe;
         }
     }
 }

@@ -81,7 +81,7 @@ namespace csharpquarium
 
         abstract public void Display();
 
-        abstract public void LiveATurn();
+        abstract public void LiveATurn(Aquarium _aquarium);
       
     }
 }

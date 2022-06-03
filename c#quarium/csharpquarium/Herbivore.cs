@@ -41,7 +41,7 @@ namespace csharpquarium
         /// Used for the herbivore eat a plant, he recieve some healtpoint and the Plant loose some healthpoint
         /// </summary>
         /// <param name="_plant"></param>type : Plant 
-        public void Eat(Plant _plant)
+        public void Eat(ref Plant _plant)
         {  
             _plant.LooseHP(Damage);
             this.GainHP(Hp_gain_eat);   
@@ -52,36 +52,67 @@ namespace csharpquarium
         /// </summary>
         /// <param name="_aquarium"></param>type : Aquarium
         /// <returns>a Plant item</returns>
-        public override AquaticLifeForm ChooseTargetToEat(Aquarium _aquarium)
+        public override AquaticLifeForm ChooseTargetToEat( ref Aquarium _aquarium)
         {
             int cpt = 0;
             int num = 0;
-            foreach (Plant item in _aquarium.Location)
+            foreach (AquaticLifeForm item in _aquarium.Location)
             {
+                if(item.GetType().ToString() == "csharpquarium.Plant")
                 cpt++;
             }
 
             num =this.Random.Next(0,cpt+1);
             cpt = 0;
 
-            foreach  (Plant item in _aquarium.Location)
+            foreach  (AquaticLifeForm item in _aquarium.Location)
             {
-                
-                if (cpt == num)
+                if (item.GetType().ToString() == "csharpquarium.Plant")
                 {
-                    return item;
+                    if (cpt == num)
+                    {
+                        return item;
+                    }
+                    cpt++;
                 }
-                cpt++;
+               
             }
             return new Plant();
         }
 
-        public override AquaticLifeForm ChooseTargetToReproduce(Aquarium _aquarium)
+        public override AquaticLifeForm ChooseTargetToReproduce(ref Aquarium _aquarium)
+        {
+            int cpt = 0;
+            int num ;
+            foreach (AquaticLifeForm item  in _aquarium.Location)
+            {            
+                    if (item.GetType() == this.GetType() && ((Fish)item).Sexuality.Gender != this.Sexuality.Gender)
+                        cpt++;    
+            }
+            num = this.Random.Next(0, cpt + 1);
+            cpt = 0;
+
+            foreach (AquaticLifeForm item in _aquarium.Location)
+            {
+                if (item.GetType() == this.GetType() && ((Fish)item).Sexuality.Gender != this.Sexuality.Gender)
+                {
+                    if (cpt == num)
+                    {
+                        return item;
+                    }
+                    cpt++;
+                }
+
+            }
+            return new Herbivore();
+        }
+
+        public override void LiveATurn(Aquarium _aquarium)
         {
             throw new NotImplementedException();
         }
 
-        public override void LiveATurn()
+        public override Fish Reproduce()
         {
             throw new NotImplementedException();
         }

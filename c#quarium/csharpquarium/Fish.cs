@@ -36,9 +36,11 @@ namespace csharpquarium
             Console.WriteLine("Prénom : "+this.Name + " Age : " + this.Age + "  Espèce : " + this.Species + "  HP : " + this.Health_point);
         }
 
-        abstract public AquaticLifeForm ChooseTargetToEat(Aquarium _aquarium);
+        abstract public AquaticLifeForm ChooseTargetToEat(ref Aquarium _aquarium);
 
-        abstract public AquaticLifeForm ChooseTargetToReproduce(Aquarium _aquarium);
+        abstract public AquaticLifeForm ChooseTargetToReproduce(ref Aquarium _aquarium);
+
+        abstract public Fish Reproduce();
 
         /// <summary>
         /// Only used by Fish , grant an ammount of Fish (used when he eat)

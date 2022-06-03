@@ -37,7 +37,7 @@ namespace csharpquarium
         /// </summary>
         /// <param name="_aquatic_life_form"></param> type AquaticLifeForm
         /// <example>aquarium.AddAquaticLifeForm(fish)</example>
-        private void AddAquaticLifeForm(AquaticLifeForm _aquatic_life_form)
+        internal void AddAquaticLifeForm(AquaticLifeForm _aquatic_life_form)
         { 
             if(this.Location.Count < this.Max_size)
                this.Location.Add(_aquatic_life_form);
@@ -59,7 +59,7 @@ namespace csharpquarium
         /// <summary>
         /// Clean every AquaticLifeForm of the Aquarium
         /// </summary>
-        public void RemoveAll()
+        internal void RemoveAll()
         {
            this.Location= new List<AquaticLifeForm>();
         }
