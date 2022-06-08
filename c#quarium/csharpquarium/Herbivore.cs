@@ -17,12 +17,13 @@ namespace csharpquarium
             this.Species = "Carpes";
             this.Age = 0;
             this.Health_point = 10;
-            this.Name = "test";
+            this.Max_hp = 10;
             this.Damage = 3;
             this.Hp_gain_eat = 3;
+            this.Name = this.ChooseAName();
         }
         /// <summary>
-        /// used for clone an Herbivore
+        /// used for have a baby Herbivore with same attribute except age
         /// </summary>
         /// <param name="_herbivore"></param>type : Herbivore
         public Herbivore(Herbivore _herbivore)
@@ -30,7 +31,7 @@ namespace csharpquarium
             this.Alive = _herbivore.Alive;
             this.Sexuality = _herbivore.Sexuality;
             this.Species=_herbivore.Species;
-            this.Age=_herbivore.Age;
+            this.Age=0;
             this.Health_point = _herbivore.Health_point;
             this.Name= _herbivore.Name;
             this.Damage = _herbivore.Damage;
@@ -41,80 +42,53 @@ namespace csharpquarium
         /// Used for the herbivore eat a plant, he recieve some healtpoint and the Plant loose some healthpoint
         /// </summary>
         /// <param name="_plant"></param>type : Plant 
-        public void Eat(ref Plant _plant)
+        public void Eat( AquaticLifeForm? _plant)
         {  
-            _plant.LooseHP(Damage);
-            this.GainHP(Hp_gain_eat);   
+            if( _plant != null)
+            {
+                _plant.LooseHP(this.Damage);
+                this.GainHPByEating();
+            }
+           
         }
 
-        /// <summary>
-        /// Used for the herbivore for randomly choose a Plant to eat 
-        /// </summary>
-        /// <param name="_aquarium"></param>type : Aquarium
-        /// <returns>a Plant item</returns>
-        public override AquaticLifeForm ChooseTargetToEat( ref Aquarium _aquarium)
+       
+
+
+
+        public override void LiveATurn( ref Aquarium _aquarium)
         {
-            int cpt = 0;
-            int num = 0;
-            foreach (AquaticLifeForm item in _aquarium.Location)
+            this.Age++;
+            if (this.Age>=20)
             {
-                if(item.GetType().ToString() == "csharpquarium.Plant")
-                cpt++;
+                this.Die();
             }
-
-            num =this.Random.Next(0,cpt+1);
-            cpt = 0;
-
-            foreach  (AquaticLifeForm item in _aquarium.Location)
+            else
             {
-                if (item.GetType().ToString() == "csharpquarium.Plant")
+                if (this.Health_point <= 5)
                 {
-                    if (cpt == num)
-                    {
-                        return item;
-                    }
-                    cpt++;
+                    this.Eat(this.ChooseTargetToEat(ref _aquarium));
                 }
-               
-            }
-            return new Plant();
-        }
-
-        public override AquaticLifeForm ChooseTargetToReproduce(ref Aquarium _aquarium)
-        {
-            int cpt = 0;
-            int num ;
-            foreach (AquaticLifeForm item  in _aquarium.Location)
-            {            
-                    if (item.GetType() == this.GetType() && ((Fish)item).Sexuality.Gender != this.Sexuality.Gender)
-                        cpt++;    
-            }
-            num = this.Random.Next(0, cpt + 1);
-            cpt = 0;
-
-            foreach (AquaticLifeForm item in _aquarium.Location)
-            {
-                if (item.GetType() == this.GetType() && ((Fish)item).Sexuality.Gender != this.Sexuality.Gender)
+                else if (this.Health_point == Max_hp)
                 {
-                    if (cpt == num)
-                    {
-                        return item;
-                    }
-                    cpt++;
+                    _aquarium.AddAquaticLifeForm(this.Reproduce((Fish)this.ChooseTargetToReproduce(ref _aquarium)));
                 }
-
             }
-            return new Herbivore();
+            this.Display();
+            
         }
 
-        public override void LiveATurn(Aquarium _aquarium)
+        public override Fish? Reproduce(Fish? _fish)
         {
-            throw new NotImplementedException();
-        }
-
-        public override Fish Reproduce()
-        {
-            throw new NotImplementedException();
+            if (_fish == null)
+            {
+                return null;
+            }
+            else
+            {
+                return new Herbivore(this);
+            }
+            
         }
     }
 }

@@ -12,6 +12,8 @@ namespace csharpquarium
     {
         // Use for set the number of healtpoint of an Aquaticlifeform
         private int health_point =10;
+
+        private int max_hp= 10;
         // the sepcies of an AquaticLifeForm
         private string species;
 
@@ -36,15 +38,19 @@ namespace csharpquarium
         public bool Alive { get => alive; set => alive = value; }
         public int Limit_age { get => limit_age; set => limit_age = value; }
 
+        
+
+        public int Max_hp { get => max_hp; set => max_hp = value; }
+
         /// <summary>
         /// Used for loosing health point, -1 hp, if no more hp call Die()
         /// </summary>
         public void LooseHP()
         {
             this.Health_point--;
-            if (this.Health_point==0)
+            if (this.Health_point<1)
             {
-                this.Alive = false;
+                this.Die();
             }
         }
 
@@ -57,7 +63,7 @@ namespace csharpquarium
             this.Health_point=this.Health_point-_damage;
             if (this.Health_point < 1)
             {
-                this.Alive = false;
+                this.Die();
             }
         }
 
@@ -66,11 +72,10 @@ namespace csharpquarium
         /// </summary>
         public void GainHP()
         {
-            if (this.Health_point < 10)
+            if (this.Health_point <this.Max_hp)
             this.Health_point++;       
         }
 
-       
         /// <summary>
         /// Something was wrong with this AquaticLiveForm, he doesn't move anymore 
         /// </summary>
@@ -79,9 +84,16 @@ namespace csharpquarium
            this.Alive = false;
         }
 
+        /// <summary>
+        /// Abstract Method for Display an AquaticLifeForm used by LiveATurn method
+        /// </summary>
         abstract public void Display();
 
-        abstract public void LiveATurn(Aquarium _aquarium);
+        /// <summary>
+        /// Abstract Method for an AquaticLifeForm live a turn 
+        /// </summary>
+        /// <param name="_aquarium"></param>Type Aquarium by ref
+        abstract public void LiveATurn( ref Aquarium _aquarium);
       
     }
 }

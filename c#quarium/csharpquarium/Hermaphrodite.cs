@@ -10,12 +10,12 @@ namespace csharpquarium
     /// </summary>
     abstract class Hermaphrodite : SexualBehavior
     {
-        public void GenderChange()
+        public void GenderChange(ref string _gender)
         {
-            if (this.Gender == "Male")
-                this.Gender = "Femelle";
+            if (_gender == "Male")
+                _gender = "Femelle";
             else
-                this.Gender = "Male";
+                _gender = "Male";
         }
     }
 }

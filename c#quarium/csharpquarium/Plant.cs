@@ -48,7 +48,7 @@ namespace csharpquarium
         }
 
 
-        public override void LiveATurn(Aquarium _aquarium)
+        public override void LiveATurn(ref Aquarium _aquarium)
         {
             
             if (this.Age < 20)

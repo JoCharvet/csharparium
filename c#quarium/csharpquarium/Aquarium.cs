@@ -33,16 +33,15 @@ namespace csharpquarium
         public int Max_size { get => max_size; set => max_size = value; }
 
         /// <summary>
-        /// Used for add an AquaticLifeForm to the Aquarium
+        /// Used for add an AquaticLifeForm to the Aquarium if location aren't full and the AquaticLifeForm aren't null
         /// </summary>
         /// <param name="_aquatic_life_form"></param> type AquaticLifeForm
         /// <example>aquarium.AddAquaticLifeForm(fish)</example>
-        internal void AddAquaticLifeForm(AquaticLifeForm _aquatic_life_form)
+        internal void AddAquaticLifeForm(AquaticLifeForm? _aquatic_life_form)
         { 
-            if(this.Location.Count < this.Max_size)
+            if(this.Location.Count < this.Max_size && _aquatic_life_form!=null)
                this.Location.Add(_aquatic_life_form);
-            else
-               Console.WriteLine("Aquarium plein.");
+           
         }
 
         /// <summary>

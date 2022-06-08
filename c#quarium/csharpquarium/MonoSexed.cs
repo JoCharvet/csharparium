@@ -11,8 +11,6 @@ namespace csharpquarium
         {
         }
 
-        public MonoSexed(string _sexe) :base(_sexe)
-        {
-        }
+       
     }
 }

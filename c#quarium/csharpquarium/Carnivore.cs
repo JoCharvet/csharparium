@@ -15,16 +15,17 @@ namespace csharpquarium
             this.Age = 0;
             this.Alive = true;
             this.Sexuality = new MonoSexed();
-            this.Name = "CarniTest";
             this.Health_point =10;
             this.Species = Spicies_Carnivore.Thon.ToString();
             this.Damage = 4;
             this.Hp_gain_eat = 5;
+            this.Name = this.ChooseAName();
+      
         }
 
         public Carnivore(Carnivore _carnivore)
         {
-            this.Age = _carnivore.Age;
+            this.Age = 0;
             this.Alive = _carnivore.Alive;
             this.Sexuality= _carnivore.Sexuality;
             this.Name= _carnivore.Name;
@@ -48,17 +49,17 @@ namespace csharpquarium
             throw new NotImplementedException();
         }
 
-        public void Eat(Fish _fish)
+        public void Eat(ref Fish _fish)
         {
             throw new System.NotImplementedException();
         }
 
-        public override void LiveATurn(Aquarium _aquarium)
+        public override void LiveATurn(ref Aquarium _aquarium)
         {
             throw new NotImplementedException();
         }
 
-        public override Fish Reproduce()
+        public override Fish? Reproduce(Fish _fish)
         {
             throw new NotImplementedException();
         }
